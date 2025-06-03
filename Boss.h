@@ -31,4 +31,3 @@ void update_boss();
 void update_boss_bullets();
 void draw_boss();
 void draw_boss_bullets();
-void check_boss_hit();
