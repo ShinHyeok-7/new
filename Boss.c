@@ -25,13 +25,7 @@ void init_boss() {
     boss.y = 2; // 보스의 초기위치
     boss.width = 7;
     boss.height = 3; // 보스 크기 7*3
-    boss.direction = 1; // 오른쪽 이동
-    boss.fire_cooldown = 0; // 발사 쿨(0이면 바로 발사 가능)
-    boss.max_hp = 20 + 10 * round; // 라운드 증가시 최대 체력 증가
-    boss.hp = boss.max_hp; // 보스 시작체력 = 최대체력
-    boss_active = 1; // 보스 활성화
-}
-
+    boss.direction 수 //
 void update_boss() {
     if (boss_active == 0) return; // 보스가 비활성화되면 아무것도 안 함
     boss.x += boss.direction; // 방향에 따라 x 위치 갱신
@@ -39,10 +33,10 @@ void update_boss() {
         boss.direction *= -1; // 벽에 닿으면 방향 반전
     }
 
-	  // 발사 쿨다운 감소 및 발사
+    // 발사 쿨다운 감소 및 발사
     if (--boss.fire_cooldown <= 0) {
         if (boss.hp > boss.max_hp / 2) {
-			// 체력 많을 때: 중앙에서 한 발
+	    // 체력 많을 때: 중앙에서 한 발
             for (int i = 0; i < MAX_BULLETS; i++) {
                 if (bullets[i].active == 0) {
                     bullets[i].x = boss.x + boss.width / 2;
@@ -52,7 +46,7 @@ void update_boss() {
                 }
             }
         } else {
-			// 체력 적을 때: 양쪽에서 두 발 (고정 위치)
+	    // 체력 적을 때: 양쪽에서 두 발 (고정 위치)
             int offset1 = 1;
             int offset2 = boss.width - 2;
             int fired = 0;
